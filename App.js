@@ -1,64 +1,64 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
-import { StatusBar ,SafeAreaView ,StyleSheet, Text, View, TextBase, TouchableOpacity, TextInput } from 'react-native'
+import { StatusBar, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native'
 
 
 export default function App() {
 
-  const [nomeInput, setNomeInput]= useState('')
-  const [salvoInput, setNomeSalvoInput]= useState('')
+  const [nomeInput, setNomeInput] = useState('')
+  const [salvoInput, setNomeSalvoInput] = useState('')
 
   async function salvarNome() {
     await AsyncStorage.setItem('nome', JSON.stringify(nomeInput))
-  setNomeInput('')
-  setNomeSalvoInput('')
+    setNomeInput('')
+    setNomeSalvoInput('')
   }
 
-  async function PegarNome() {
-    const iNome = await AsyncStorage.getItem('nome')
-    const pNome = JSON.parse(iNome)
-    setNomeSalvo(pNome)
-  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
-      <StatusBar
-      backgroundColor='#FFFFFF'
-      barStyle='dark-content'
-      translucent={false}
-      />
-    <Text styles={styles.textoTitulo}>Hi welcome to a my app!</Text>
-    <TextInput 
-    style={styles.textoEntrada}
-    placeholder="Digite o Nome"
-    value={nomeInput}
-    onChangeText={setNomeInput}
-    />
-    <TouchableOpacity style={styles.botaoGravar} onPress={salvarNome}>
+        <StatusBar
+          backgroundColor='#FFFFFF'
+          barStyle='dark-content'
+          translucent={false}
+        />
+        <Text styles={styles.textoTitulo}>Crie sua Conta</Text>
+        <TextInput
+          style={styles.textoEntrada}
+          placeholder="Digite o Email"
+          value={nomeInput}
+          onChangeText={setNomeInput}
+        />
+        <Text style={styles.LoginSenha}>Coloque sua Senha</Text>
+        <TextInput
+          style={styles.senhaEntrada}
+          placeholder="Digite a senha"
+          value={nomeInput}
+          onChangeText={setNomeInput}
+        />
+        <Text styles={styles.senhaUsuario}>Coloque seu Usuario</Text>
+        <TextInput
+          style={styles.entraUsuario}
+          placeholder="Digite Usuario"
+          value={nomeInput}
+          onChangeText={setNomeInput}
+        />
 
-    <Text style={styles.textoBotao}>salvarNome</Text>
-
-    </TouchableOpacity>
-
-    <TouchableOpacity style={styles.BotaoPegar} onPress={PegarNome}>
-
-      <Text style={styles.textoBotao}>PegarNome</Text>
-
-    </TouchableOpacity>
 
 
 
-    
-    <View>
-    <Text>{salvoInput.nome}</Text>
-    <Text>{salvoInput.email}</Text>
-    <Text>{salvoInput.senha}</Text>
-    <Text>{salvoInput.cep}</Text>
-    <Text>{salvoInput.pais}</Text>
 
-    </View>
 
-    </View>
+        <View>
+          <Text>{salvoInput.nome}</Text>
+          <Text>{salvoInput.email}</Text>
+          <Text>{salvoInput.senha}</Text>
+
+
+        </View>
+
+      </View>
 
     </SafeAreaView>
 
@@ -71,11 +71,46 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#00000',
     alignItems: 'center',
-    textAlign: 'center',
-  marginTop: 15
+    position: 'relative',
+    marginTop: 10
   },
   textoTitulo: {
-    fontSize: 30,
-    fontWeight: 'bold'
+    fontSize: 10,
+    fontWeight: 'bold',
+
+  },
+  textoEntrada: {
+    marginTop: 220,
+    fontSize: 20,
+    textAlign: 'center',
+    borderWidth: 1,
+    borderRadius: 7,
+
+  },
+  LoginSenha: {
+    fontSize: 15,
+    fontWeight: 'black'
+  },
+  senhaEntrada: {
+    marginTop: 20,
+    fontSize: 20,
+    textAlign: 'center',
+    borderWidth: 1,
+    borderRadius: 7,
+  },
+  senhaUsuario: {
+    fontSize: 15,
+    fontWeight: 'black'
+  },
+  entraUsuario: {
+    marginTop: 20,
+    fontSize: 20,
+    textAlign: 'center',
+    borderWidth: 1,
+    borderRadius: 7
   }
+
+
+
+
 });
