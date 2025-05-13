@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
-import { StatusBar, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native'
+import { StatusBar, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, TextInput, Button } from 'react-native'
+
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
     setNomeSalvoInput('')
   }
 
+  <img src="https://as2.ftcdn.net/jpg/04/08/74/09/1000_F_408740958_LvKdx0d7pMaX1JKbSHzMCxSyNsQHkchw.jpg" alt="Descricao" width="200" /> 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -23,21 +25,13 @@ export default function App() {
           barStyle='dark-content'
           translucent={false}
         />
-        <Text styles={styles.textoTitulo}>Crie sua Conta</Text>
-        <TextInput
-          style={styles.textoEntrada}
-          placeholder="Digite o Email"
-          value={nomeInput}
-          onChangeText={setNomeInput}
-        />
-        <Text style={styles.LoginSenha}>Coloque sua Senha</Text>
         <TextInput
           style={styles.senhaEntrada}
           placeholder="Digite a senha"
           value={nomeInput}
           onChangeText={setNomeInput}
         />
-        <Text styles={styles.senhaUsuario}>Coloque seu Usuario</Text>
+
         <TextInput
           style={styles.entraUsuario}
           placeholder="Digite Usuario"
@@ -45,6 +39,10 @@ export default function App() {
           onChangeText={setNomeInput}
         />
 
+
+        <TextInput
+          style={styles.EntraConta}
+        />
 
 
 
@@ -67,6 +65,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+
+
+
   container: {
     flex: 1,
     backgroundColor: '#00000',
@@ -74,11 +75,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: 10
   },
-  textoTitulo: {
-    fontSize: 10,
-    fontWeight: 'bold',
 
-  },
   textoEntrada: {
     marginTop: 220,
     fontSize: 20,
@@ -87,23 +84,22 @@ const styles = StyleSheet.create({
     borderRadius: 7,
 
   },
-  LoginSenha: {
-    fontSize: 15,
-    fontWeight: 'black'
-  },
+
   senhaEntrada: {
-    marginTop: 20,
+    marginTop: 330,
     fontSize: 20,
     textAlign: 'center',
     borderWidth: 1,
     borderRadius: 7,
   },
+
   senhaUsuario: {
     fontSize: 15,
     fontWeight: 'black'
   },
+
   entraUsuario: {
-    marginTop: 20,
+    marginTop: 30,
     fontSize: 20,
     textAlign: 'center',
     borderWidth: 1,
