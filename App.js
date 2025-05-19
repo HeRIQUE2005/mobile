@@ -1,6 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
-import { StatusBar, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, TextInput, Button } from 'react-native'
+import {
+  StatusBar,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  Image
+} from 'react-native'
 
 
 
@@ -15,7 +24,9 @@ export default function App() {
     setNomeSalvoInput('')
   }
 
-  <img src="https://as2.ftcdn.net/jpg/04/08/74/09/1000_F_408740958_LvKdx0d7pMaX1JKbSHzMCxSyNsQHkchw.jpg" alt="Descricao" width="200" /> 
+
+
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,6 +36,11 @@ export default function App() {
           barStyle='dark-content'
           translucent={false}
         />
+
+        <Image source={require('./assets/livro1.png')} />
+        
+        <Text style={styles.TextoConta}>Crie sua conta</Text>
+
         <TextInput
           style={styles.senhaEntrada}
           placeholder="Digite a senha"
@@ -35,8 +51,8 @@ export default function App() {
         <TextInput
           style={styles.entraUsuario}
           placeholder="Digite Usuario"
-          value={nomeInput}
-          onChangeText={setNomeInput}
+          value={salvoInput}
+          onChangeText={setNomeSalvoInput}
         />
 
 
@@ -104,9 +120,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     borderWidth: 1,
     borderRadius: 7
+  },
+
+
+  TextoConta: {
+    position: 'relative',
+    top: '150',
+    fontSize: 30
+    
   }
 
 
 
 
 });
+
+  
